@@ -1,0 +1,15 @@
+name: Semaphore Config check
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6.x'
+      - run: ruby script/github-actions/semaphore-config-check.rb
